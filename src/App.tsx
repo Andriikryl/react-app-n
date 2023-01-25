@@ -1,19 +1,22 @@
-import React, { useEffect } from 'react';
+
+import { ErrorMessage } from './components/ErrorMessage';
+import { Loader } from './components/Loader';
 import { Product } from './components/Product';
-import { products } from './data/products';
+import { useProducts } from './hooks/products';
+
+
  
 function App() {
 
-  useEffect(() => {
-    console.log("effect")
-  }, [])
+  const {loading, error, products} = useProducts()  
 
 
 
   return (
     <div className='container mx-auto max-w-2xl pt-5'>
-
-    {products.map(product => <Product product={product} key={product.id}/>)}
+      {loading && <Loader/>}
+      {error &&  <ErrorMessage error={error}/>}
+      {products.map(product => <Product product={product} key={product.id}/>)}
 
     </div>
   );
