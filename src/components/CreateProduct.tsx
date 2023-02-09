@@ -2,6 +2,10 @@ import React, {useState} from 'react'
 import {IProduct} from '../models'
 import axios from 'axios'
 import {ErrorMessage} from './ErrorMessage'
+import { Box } from '@mui/system'
+
+
+
 
 const productData: IProduct =  {
   title: '',
@@ -43,6 +47,7 @@ export function CreateProduct({ onCreate }: CreateProductProps) {
   }
 
   return (
+    <Box>
     <form onSubmit={submitHandler}>
       <input
         type="text"
@@ -56,5 +61,6 @@ export function CreateProduct({ onCreate }: CreateProductProps) {
 
       <button type="submit" className="py-2 px-4 border bg-yellow-400 hover:text-white">Create</button>
     </form>
+    </Box>
   )
 }

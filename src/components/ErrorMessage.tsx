@@ -1,4 +1,6 @@
 import React from 'react'
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 
 interface ErrorMessageProps {
   error: string
@@ -6,6 +8,8 @@ interface ErrorMessageProps {
 
 export function ErrorMessage({ error }: ErrorMessageProps) {
   return (
-    <p className="text-center text-red-600">{ error }</p>
+    <Stack sx={{ width: '100%' }} spacing={2}>
+    <Alert severity="error">{ error }</Alert>
+  </Stack>
   )
 }
